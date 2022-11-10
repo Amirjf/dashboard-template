@@ -5,7 +5,6 @@ export * from './layout/SearchModal'
 export * from './layout/InboxCompose'
 export * from './layout/header-menus/HeaderUserMenu'
 export * from './layout/header-menus/HeaderNotificationsMenu'
-export * from './layout/demos-drawer/DemosDrawer'
 export * from './layout/drawer-messenger/DrawerMessenger'
 export * from './layout/activity-drawer/ActivityDrawer'
 export * from './layout/create-app/CreateApp'
@@ -18,8 +17,6 @@ export * from './content/dropdown/Dropdown2'
 
 // editors
 export * from './content/editor/EditorToolbar'
-
-export * from './content/code-highlight/CodeBlock'
 
 export * from './content/portal/Portal'
 

@@ -75,40 +75,6 @@ const AccountHeader: React.FC = () => {
                   </a>
                 </div>
               </div>
-
-              <div className='d-flex my-4'>
-                <a href='#' className='btn btn-sm btn-light me-2' id='kt_user_follow_button'>
-                  <KTSVG
-                    path='/media/icons/duotune/arrows/arr012.svg'
-                    className='svg-icon-3 d-none'
-                  />
-
-                  <span className='indicator-label'>Follow</span>
-                  <span className='indicator-progress'>
-                    Please wait...
-                    <span className='spinner-border spinner-border-sm align-middle ms-2'></span>
-                  </span>
-                </a>
-                <a
-                  href='#'
-                  className='btn btn-sm btn-primary me-3'
-                  data-bs-toggle='modal'
-                  data-bs-target='#kt_modal_offer_a_deal'
-                >
-                  Hire Me
-                </a>
-                <div className='me-0'>
-                  <button
-                    className='btn btn-sm btn-icon btn-bg-light btn-active-color-primary'
-                    data-kt-menu-trigger='click'
-                    data-kt-menu-placement='bottom-end'
-                    data-kt-menu-flip='top-end'
-                  >
-                    <i className='bi bi-three-dots fs-3'></i>
-                  </button>
-                  <Dropdown1 />
-                </div>
-              </div>
             </div>
 
             <div className='d-flex flex-wrap flex-stack'>
