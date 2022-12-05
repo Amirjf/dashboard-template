@@ -23,8 +23,6 @@ const initialValues = {
   email: 'amir@datgate.com',
   password: '123456',
 }
-const str = 'condition=used,certified&make=nissan'
-console.log(qs.parse(str, {comma: true}))
 
 export function Login() {
   const [loading, setLoading] = useState(false)
