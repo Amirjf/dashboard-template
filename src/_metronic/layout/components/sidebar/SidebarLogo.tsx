@@ -23,7 +23,7 @@ const SidebarLogo = () => {
           <img
             alt='Logo'
             src={toAbsoluteUrl('/media/logos/default-dark.svg')}
-            className='h-25px app-sidebar-logo-default'
+            className='h-30px app-sidebar-logo-default'
           />
         ) : (
           <>
@@ -42,8 +42,8 @@ const SidebarLogo = () => {
 
         <img
           alt='Logo'
-          src={toAbsoluteUrl('/media/logos/default-small.svg')}
-          className='h-20px app-sidebar-logo-minimize'
+          src={toAbsoluteUrl('/media/logos/default-small.png')}
+          className='h-30px app-sidebar-logo-minimize'
         />
       </Link>
 
