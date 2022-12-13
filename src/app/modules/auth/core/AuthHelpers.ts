@@ -1,6 +1,6 @@
 import {AuthModel} from './_models'
 
-const AUTH_LOCAL_STORAGE_KEY = 'dt-auth-react-v'
+const AUTH_LOCAL_STORAGE_KEY = 'dt-auth'
 const getAuth = (): AuthModel | undefined => {
   if (!localStorage) {
     return
@@ -52,8 +52,8 @@ export function setupAxios(axios: any) {
   axios.interceptors.request.use(
     (config: {headers: {Authorization: string}}) => {
       const auth = getAuth()
-      if (auth && auth.api_token) {
-        config.headers.Authorization = `Bearer ${auth.api_token}`
+      if (auth && auth.access_token) {
+        config.headers.Authorization = `Bearer ${auth.access_token}`
       }
 
       return config

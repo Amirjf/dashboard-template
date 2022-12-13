@@ -1,5 +1,6 @@
 import {Navigate, Routes, Route, Outlet} from 'react-router-dom'
 import {PageLink, PageTitle} from '../../../_metronic/layout/core'
+import {Campaigns} from './components/Campaigns'
 import {Overview} from './components/Overview'
 
 import {ProfileHeader} from './ProfileHeader'
@@ -35,6 +36,15 @@ const ProfilePage = () => (
           <>
             <PageTitle breadcrumbs={profileBreadCrumbs}>Overview</PageTitle>
             <Overview />
+          </>
+        }
+      />
+      <Route
+        path='campaigns'
+        element={
+          <>
+            <PageTitle breadcrumbs={profileBreadCrumbs}>campaigns</PageTitle>
+            <Campaigns />
           </>
         }
       />

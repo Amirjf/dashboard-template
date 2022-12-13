@@ -1,6 +1,6 @@
 import axios from 'axios'
 import {AuthModel, UserModel} from './_models'
-import qs from 'qs'
+
 const API_URL = process.env.REACT_APP_API_URL
 
 export const GET_USER_BY_ACCESSTOKEN_URL = `${API_URL}/verify_token`
@@ -12,7 +12,7 @@ export const REQUEST_PASSWORD_URL = `${API_URL}/forgot_password`
 export function login(email: string, password: string) {
   const data = {username: email, password}
 
-  return axios.post<AuthModel>(LOGIN_URL, qs.stringify(data))
+  return axios.post(LOGIN_URL, data)
 }
 
 // Server should return AuthModel

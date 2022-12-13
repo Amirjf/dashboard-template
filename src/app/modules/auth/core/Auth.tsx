@@ -38,6 +38,7 @@ const useAuth = () => {
 
 const AuthProvider: FC<WithChildren> = ({children}) => {
   const [auth, setAuth] = useState<AuthModel | undefined>(authHelper.getAuth())
+
   const [currentUser, setCurrentUser] = useState<UserModel | undefined>()
   const saveAuth = (auth: AuthModel | undefined) => {
     setAuth(auth)
@@ -86,8 +87,11 @@ const AuthInit: FC<WithChildren> = ({children}) => {
       return () => (didRequest.current = true)
     }
 
-    if (auth && auth.api_token) {
-      requestUser(auth.api_token)
+    if (auth && auth.access_token) {
+      //@ts-ignore
+      setCurrentUser(auth.access_token)
+      setShowSplashScreen(false)
+      // requestUser(auth.access_token)
     } else {
       logout()
       setShowSplashScreen(false)

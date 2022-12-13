@@ -2,7 +2,6 @@
 import React from 'react'
 import {KTSVG, toAbsoluteUrl} from '../../../_metronic/helpers'
 import {Link} from 'react-router-dom'
-import {Dropdown1} from '../../../_metronic/partials'
 import {useLocation} from 'react-router-dom'
 
 const ProfileHeader: React.FC = () => {
@@ -138,6 +137,17 @@ const ProfileHeader: React.FC = () => {
                 to='/crafted/pages/profile/overview'
               >
                 Overview
+              </Link>
+            </li>
+            <li className='nav-item'>
+              <Link
+                className={
+                  `nav-link text-active-primary me-6 ` +
+                  (location.pathname === '/crafted/pages/profile/campaigns' && 'active')
+                }
+                to='/crafted/pages/profile/campaigns'
+              >
+                Campaigns
               </Link>
             </li>
           </ul>

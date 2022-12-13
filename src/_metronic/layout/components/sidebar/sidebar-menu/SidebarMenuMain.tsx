@@ -2,6 +2,7 @@
 import {useIntl} from 'react-intl'
 import {SidebarMenuItemWithSub} from './SidebarMenuItemWithSub'
 import {SidebarMenuItem} from './SidebarMenuItem'
+import SidebarTitle from './SidebarTitle'
 
 const SidebarMenuMain = () => {
   const intl = useIntl()
@@ -15,29 +16,50 @@ const SidebarMenuMain = () => {
         fontIcon='bi-app-indicator'
       />
 
-      <div className='menu-item'>
-        <div className='menu-content pt-8 pb-2'>
-          <span className='menu-section text-muted text-uppercase fs-8 ls-1'>Main Menu</span>
-        </div>
-      </div>
+      <SidebarTitle title='Control Panel' />
+
+      {/* Inventory */}
       <SidebarMenuItemWithSub
-        to='/crafted/pages'
-        title='Pages'
-        fontIcon='bi-archive'
-        icon='/media/icons/duotune/general/gen022.svg'
+        icon='/media/icons/duotune/ecommerce/ecm009.svg'
+        to='/control-panel/inventory'
+        title='Inventory'
       >
-        <SidebarMenuItemWithSub to='/crafted/pages/profile' title='Profile' hasBullet={true}>
-          <SidebarMenuItem to='/crafted/pages/profile/overview' title='Overview' hasBullet={true} />
-        </SidebarMenuItemWithSub>
-        {/* <SidebarMenuItemWithSub to='/crafted/pages/wizards' title='Wizards' hasBullet={true}>
-          <SidebarMenuItem
-            to='/crafted/pages/wizards/horizontal'
-            title='Horizontal'
-            hasBullet={true}
-          />
-          <SidebarMenuItem to='/crafted/pages/wizards/vertical' title='Vertical' hasBullet={true} />
-        </SidebarMenuItemWithSub> */}
+        <SidebarMenuItem
+          to='/control-panel/inventory/templates'
+          title='Templates'
+          hasBullet={true}
+        />
+        <SidebarMenuItem to='/control-panel/inventory/reports' title='Reports' hasBullet={true} />
+        <SidebarMenuItem to='/control-panel/inventory/feeds' title='Feeds' hasBullet={true} />
+        <SidebarMenuItem to='/control-panel/inventory/Reports' title='Dealers' hasBullet={true} />
       </SidebarMenuItemWithSub>
+
+      {/* Reviews */}
+      <SidebarMenuItemWithSub
+        icon='/media/icons/duotune/communication/com003.svg'
+        to='/control-panel/reviews'
+        title='Reviews'
+      >
+        <SidebarMenuItem to='/control-panel/reviews/company' title='Company' hasBullet={true} />
+        <SidebarMenuItem to='/control-panel/reviews/reviews' title='Reviews' hasBullet={true} />
+      </SidebarMenuItemWithSub>
+
+      <SidebarTitle title='Users Management' />
+
+      <SidebarMenuItem
+        to='/apps/user-management/users'
+        icon='/media/icons/duotune/general/gen051.svg'
+        title='User management'
+        fontIcon='bi-layers'
+      />
+      <SidebarMenuItemWithSub
+        icon='/media/icons/duotune/communication/com013.svg'
+        to='/crafted/pages/profile'
+        title='Profile'
+      >
+        <SidebarMenuItem to='/crafted/pages/profile/overview' title='Overview' hasBullet={true} />
+      </SidebarMenuItemWithSub>
+
       <SidebarMenuItemWithSub
         to='/crafted/accounts'
         title='Accounts'
@@ -47,19 +69,6 @@ const SidebarMenuMain = () => {
         <SidebarMenuItem to='/crafted/account/overview' title='Overview' hasBullet={true} />
         <SidebarMenuItem to='/crafted/account/settings' title='Settings' hasBullet={true} />
       </SidebarMenuItemWithSub>
-
-      <div className='menu-item'>
-        <div className='menu-content pt-8 pb-2'>
-          <span className='menu-section text-muted text-uppercase fs-8 ls-1'>Apps</span>
-        </div>
-      </div>
-
-      <SidebarMenuItem
-        to='/apps/user-management/users'
-        icon='/media/icons/duotune/general/gen051.svg'
-        title='User management'
-        fontIcon='bi-layers'
-      />
     </>
   )
 }

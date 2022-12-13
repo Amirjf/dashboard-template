@@ -4,12 +4,11 @@ import * as Yup from 'yup'
 import clsx from 'clsx'
 import {Link} from 'react-router-dom'
 import {useFormik} from 'formik'
-import {getUserByToken, login} from '../core/_requests'
+import {login} from '../core/_requests'
 import {useAuth} from '../core/Auth'
 import qs from 'qs'
 const loginSchema = Yup.object().shape({
   email: Yup.string()
-    .email('Wrong email format')
     .min(3, 'Minimum 3 symbols')
     .max(50, 'Maximum 50 symbols')
     .required('Email is required'),
@@ -20,8 +19,8 @@ const loginSchema = Yup.object().shape({
 })
 
 const initialValues = {
-  email: 'amir@datgate.com',
-  password: '123456',
+  email: 'admin@demo.com',
+  password: 'demo',
 }
 
 export function Login() {
@@ -36,7 +35,8 @@ export function Login() {
       setLoading(true)
       try {
         const {data: auth} = await login(values.email, values.password)
-        saveAuth(auth)
+
+        saveAuth(auth.data)
         //@ts-ignore
         // const {data: user} = await getUserByToken(auth.access_token)
         setCurrentUser(auth)
@@ -76,7 +76,7 @@ export function Login() {
       )}
       {/* begin::Form group */}
       <div className='fv-row mb-8'>
-        <label className='form-label fs-6 fw-bolder text-dark'>Email</label>
+        <label className='form-label fs-6 fw-bolder text-dark'>Email/Username</label>
         <input
           placeholder='Email'
           {...formik.getFieldProps('email')}
