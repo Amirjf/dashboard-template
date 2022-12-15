@@ -19,7 +19,7 @@ const UsersTable = () => {
     data,
   })
 
-  console.log(columns, 'columns')
+  console.log({users, data, columns})
 
   return (
     <KTCardBody className='py-4'>

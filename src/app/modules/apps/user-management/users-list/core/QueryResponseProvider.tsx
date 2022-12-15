@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import {FC, useContext, useState, useEffect, useMemo} from 'react'
-import {useQuery} from 'react-query'
+import {useQuery} from '@tanstack/react-query'
 import {
   createResponseContext,
   initialQueryResponse,
@@ -26,12 +26,14 @@ const QueryResponseProvider: FC<WithChildren> = ({children}) => {
     }
   }, [updatedQuery])
 
+  console.log({query, updatedQuery})
+
   const {
     isFetching,
     refetch,
     data: response,
   } = useQuery(
-    `${QUERIES.USERS_LIST}-${query}`,
+    [`${QUERIES.USERS_LIST}-${query}`],
     () => {
       return getUsers(query)
     },

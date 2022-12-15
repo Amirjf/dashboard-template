@@ -1,4 +1,4 @@
-import {useQuery} from 'react-query'
+import {useQuery} from '@tanstack/react-query'
 import {UserEditModalForm} from './UserEditModalForm'
 import {isNotEmpty, QUERIES} from '../../../../../../_metronic/helpers'
 import {useListView} from '../core/ListViewProvider'
@@ -12,7 +12,7 @@ const UserEditModalFormWrapper = () => {
     data: user,
     error,
   } = useQuery(
-    `${QUERIES.USERS_LIST}-user-${itemIdForUpdate}`,
+    [`${QUERIES.USERS_LIST}-user-${itemIdForUpdate}`],
     () => {
       return getUserById(itemIdForUpdate)
     },

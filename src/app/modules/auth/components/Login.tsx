@@ -6,12 +6,12 @@ import {Link} from 'react-router-dom'
 import {useFormik} from 'formik'
 import {login} from '../core/_requests'
 import {useAuth} from '../core/Auth'
-import qs from 'qs'
+
 const loginSchema = Yup.object().shape({
   email: Yup.string()
     .min(3, 'Minimum 3 symbols')
     .max(50, 'Maximum 50 symbols')
-    .required('Email is required'),
+    .required('Email/Username is required'),
   password: Yup.string()
     .min(3, 'Minimum 3 symbols')
     .max(50, 'Maximum 50 symbols')
@@ -19,9 +19,21 @@ const loginSchema = Yup.object().shape({
 })
 
 const initialValues = {
-  email: 'admin@demo.com',
-  password: 'demo',
+  email: 'reza',
+  password: 'Reza1234',
 }
+
+// Super:
+// reza
+// Reza1234
+
+// Admin:
+// amir
+// Reza1234
+
+// Manager:
+// hirad
+// Reza1234
 
 export function Login() {
   const [loading, setLoading] = useState(false)
@@ -59,7 +71,7 @@ export function Login() {
     >
       {/* begin::Heading */}
       <div className='text-center mb-11'>
-        <h1 className='text-dark fw-bolder mb-3'>Sign In</h1>
+        <h1 className='text-dark display-4 fw-bolder mb-3'>Sign In</h1>
       </div>
       {/* begin::Heading */}
 

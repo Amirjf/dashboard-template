@@ -1,6 +1,6 @@
 import axios from 'axios'
 import {AuthModel, UserModel} from './_models'
-
+import qs from 'qs'
 const API_URL = process.env.REACT_APP_API_URL
 
 export const GET_USER_BY_ACCESSTOKEN_URL = `${API_URL}/verify_token`
