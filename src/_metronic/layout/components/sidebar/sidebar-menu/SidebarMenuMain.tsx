@@ -4,6 +4,8 @@ import {SidebarMenuItemWithSub} from './SidebarMenuItemWithSub'
 import {SidebarMenuItem} from './SidebarMenuItem'
 import SidebarTitle from './SidebarTitle'
 import ControlPanelLinks from './sidebar-menu-links/control-panel/ControlPanelLinks'
+import PermissionsGate from '../../../../../app/modules/auth/core/role-management/PermissionsGate'
+import {SCOPES} from '../../../../../app/modules/auth/core/role-management/permission-maps'
 
 const SidebarMenuMain = () => {
   const intl = useIntl()
@@ -17,8 +19,17 @@ const SidebarMenuMain = () => {
         fontIcon='bi-app-indicator'
       />
 
-      {/* Main Control Panel */}
-      <ControlPanelLinks />
+      <PermissionsGate scopes={[SCOPES.canDelete]}>
+        {/* Main Control Panel */}
+        <ControlPanelLinks />
+      </PermissionsGate>
+
+      <PermissionsGate scopes={[SCOPES.canEdit, SCOPES.canCreate]}>
+        <SidebarTitle title='ADMIN' />
+      </PermissionsGate>
+      <PermissionsGate scopes={[SCOPES.canView]}>
+        <SidebarTitle title='Manager' />
+      </PermissionsGate>
 
       <SidebarTitle title='Users Management' />
 

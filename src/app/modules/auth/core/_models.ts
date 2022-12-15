@@ -68,3 +68,10 @@ export interface UserModel {
   address?: UserAddressModel
   socialNetworks?: UserSocialNetworksModel
 }
+
+export interface PermissionsGateModel {
+  children: JSX.Element
+  scopes: string[]
+  RenderError?: () => JSX.Element
+  errorProps?: {[key: string]: any} | null
+}
